@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 
 //Import Routes
 const authRoute = require('./routes/auth');
-const postRoute = require('./routes/posts');
+const placeRoute = require('./routes/placesRoute');
 dotenv.config();
 
 //Connect to DB
@@ -19,6 +19,6 @@ app.use(express.json());
 
 //Route Middlewares
 app.use('/api/user', authRoute);
-app.use('/api/posts', postRoute);
+app.use('/api/places', placeRoute);
 
 app.listen(port, () => console.log('Listening on port 5000'));
