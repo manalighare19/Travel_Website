@@ -9,10 +9,15 @@ const placeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    city:{
+    cityId:{
+        type: String,
+        required: true
+    },
+    image:{
         type: String,
         required: true
     }
+
 },{colletion: 'places'});
 
 module.exports = mongoose.model('Place', placeSchema);

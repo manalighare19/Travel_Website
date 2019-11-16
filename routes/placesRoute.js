@@ -14,7 +14,7 @@ router.post('/getcity', async (req,res) => {
    
     const cityExist =  await City.findOne({name: req.body.name}); 
     if(cityExist) {
-        res.send({"cityId" :cityExist._id});
+        res.send({"cityId" :cityExist._id, "name": cityExist.name});
     } 
     else{
         res.status(400).send({
