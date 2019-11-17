@@ -2,11 +2,18 @@ const router = require('express').Router();
 const mongoose = require('mongoose');
 const Place = require('../model/Place');
 const City = require('../model/City');
+const Cusine = require('../model/Cusine');
 
 //Get places with city name
 router.post('/getplaces', async (req,res) => {
     const places = await Place.find({"city":req.body.city});    
     res.send(places);
+});
+
+//Get Food places with city name
+router.post('/getfoodPlaces', async (req,res) => {
+    const cusines = await Cusine.find({"city":req.body.city});    
+    res.send(cusines);
 });
 
 //Get city
@@ -22,9 +29,6 @@ router.post('/getcity', async (req,res) => {
     });  
     }
 });
-
-
-
 
 
 module.exports = router;
