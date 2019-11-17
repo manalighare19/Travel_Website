@@ -19,7 +19,9 @@ router.post('/getfoodPlaces', async (req,res) => {
 //Get city
 router.post('/getcity', async (req,res) => {
    
-    const cityExist =  await City.findOne({name: req.body.name}); 
+    console.log(req.body.name.toLowerCase());
+    
+    const cityExist =  await City.findOne({name: req.body.name.toLowerCase()}); 
     if(cityExist) {
         res.send({"cityId" :cityExist._id, "name": cityExist.name});
     } 
