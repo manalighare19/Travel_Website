@@ -5,12 +5,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //Import Routes
-const authRoute = require('./routes/auth');
-const placeRoute = require('./routes/placesRoute');
+const userRoute = require('./routes/userRoute');
+const cityRoute = require('./routes/cityRoute');
+const loginRoute = require('./routes/loginRoute');
 dotenv.config();
 
 //Connect to DB
-mongoose.connect( process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+mongoose.connect( process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log('Connected to db')
 });
 
@@ -18,7 +19,9 @@ mongoose.connect( process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 app.use(express.json());
 
 //Route Middlewares
-app.use('/api/user', authRoute);
-app.use('/api/places', placeRoute);
+app.use('/api/users', userRoute);
+app.use('/api/cities', cityRoute);
+app.use('/api/login', loginRoute);
+
 
 app.listen(port, () => console.log('Listening on port 5000'));
