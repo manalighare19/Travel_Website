@@ -68,9 +68,10 @@ router.get('/attractions', verify, async (req,res) => {
 router.put('/attractions' ,verify, async function (req, res) {
     const admin = await Admin.findById({_id : req.user._id});
     if(admin){
-        //console.log(req.body._id);
+       
+        
         await Place.updateOne({_id: Object(req.body._id)}, {$set: req.body});
-        res.status(400).send({
+        res.status(200).send({
             message: 'Update successful.'
        });
         
