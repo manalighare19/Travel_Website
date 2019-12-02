@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 const userRoute = require('./routes/userRoute');
 const cityRoute = require('./routes/cityRoute');
 const loginRoute = require('./routes/loginRoute');
+const adminRoute = require('./routes/adminRoute');
 dotenv.config();
 
 //Connect to DB
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api/users', userRoute);
 app.use('/api/cities', cityRoute);
 app.use('/api/login', loginRoute);
+app.use('/admin', adminRoute);
 
 
 app.listen(port, () => console.log('Listening on port 5000'));

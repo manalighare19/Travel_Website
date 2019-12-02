@@ -19,7 +19,7 @@ router.get('/', async (req,res) => {
         }
     }else{
         res.status(400).send({
-            message:'Please enter the city.'
+            message:'Please enter the city name.'
     });  
     }
 });
