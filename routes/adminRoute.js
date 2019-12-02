@@ -47,8 +47,12 @@ router.get('/attractions', verify, async (req,res) => {
             var  attractions = [];
            
             for (let index = 0; index < result.length; index++) {
-                const places = await Place.find({city : result[index]._id});   
-                attractions.push(places);  
+                const places = await Place.find({city : result[index]._id});  
+                
+                for(let i=0; i< places.length; i++){
+                    attractions.push(places[i]);
+                }
+                  
             }
             res.send(attractions);
         });  
