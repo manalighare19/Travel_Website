@@ -20,9 +20,9 @@ mongoose.connect( process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTop
 app.use(express.json());
 
 //Route Middlewares
-app.use('/api/users', userRoute);
-app.use('/api/cities', cityRoute);
-app.use('/api/login', loginRoute);
+app.use('/users', userRoute);
+app.use('/cities', cityRoute);
+app.use('/login', loginRoute);
 app.use('/admin', adminRoute);
 
 

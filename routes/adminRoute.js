@@ -58,7 +58,7 @@ router.get('/attractions', verify, async (req,res) => {
         });  
     }else{
         res.status(400).send({
-            message: 'Only admin can access this page'
+            message: 'Only admin can access this page.'
        });
     } 
     
@@ -68,13 +68,14 @@ router.get('/attractions', verify, async (req,res) => {
 router.put('/attractions' ,verify, async function (req, res) {
     const admin = await Admin.findById({_id : req.user._id});
     if(admin){
-       
-        
         await Place.updateOne({_id: Object(req.body._id)}, {$set: req.body});
         res.status(200).send({
             message: 'Update successful.'
+       });   
+    }else{
+        res.status(400).send({
+            message: 'Only admin can update this information.'
        });
-        
     }
     
 });
